@@ -1,8 +1,8 @@
 const config = {};
 config.default = {};
 config.default.gameSpecs = {
-    width: 375,
-    height: 812,
+    width: 800,
+    height: 600,
     renderType: Phaser.AUTO,
     parentID : "gameContainer"
 };
@@ -28,12 +28,16 @@ config.menuState = {
         spriteSrc: "assets/img/phaserLogo.png"
     }
 };
+config.gameState = {
+
+};
 
 
 config.default.stateManager = {
     bootState: "boot",
     loadState: "load",
-    menuState: "menu"
+    menuState: "menu",
+    gameState: "game",
 }
 
 
