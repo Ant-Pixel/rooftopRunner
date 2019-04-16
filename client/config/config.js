@@ -29,11 +29,26 @@ config.menuState = {
     }
 };
 
+config.testStage1 = {
+    player: {
+        x: config.default.gameSpecs.width * 0.1,
+        y: config.default.gameSpecs.height * 0.1,
+        spriteKey: "player1sprite",
+        spriteSrc: "assets/img/phaser-dude.png"
+    },
+    platform: {
+        x: config.default.gameSpecs.wdith * 0.5,
+        y: config.default.gameSpecs.height * 0.5,
+        spriteKey: "platform",
+        spriteSrc: "assets/img/platform.png"
+    }
+}
 
 config.default.stateManager = {
     bootState: "boot",
     loadState: "load",
-    menuState: "menu"
+    menuState: "menu",
+    testStage1: "testStage1"
 }
 
 
