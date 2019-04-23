@@ -15,6 +15,13 @@ testStage1.create = () => {
     game.physics.arcade.enable(player);
     player.body.collideWorldBounds = true;
     player.body.gravity.y = 500;
+    player.methods = {
+      jump: () => {
+        if (player.body.onFloor() || player.body.touching.down) {
+            player.body.velocity.y = -300;
+        }
+      },
+    }
     testStage1.player = player;
 
     //create platform group and add physics
@@ -32,15 +39,9 @@ testStage1.create = () => {
     //create the game keys
     testStage1.moveKeys = game.input.keyboard.createCursorKeys();
     testStage1.jumpBtn = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    testStage1.jumpBtn.onDown.add(player.methods.jump, testStage1);
 };
 
 testStage1.update = () => {
     game.physics.arcade.collide(testStage1.player, testStage1.platforms);
-
-    if (testStage1.jumpBtn.isDown) {
-      if (testStage1.player.body.onFloor() || testStage1.player.body.touching.down) {
-          //testStage1.player.body.gravity.y = 0;
-          testStage1.player.body.velocity.y = -300;
-      }
-    }
 }
