@@ -9,7 +9,7 @@ config.default.gameSpecs = {
 config.loadState = {
     style: {
         font: "30px Courier",
-        fill: "#fff"
+        fill: "#000"
     },
     label: {
         text : {
@@ -29,7 +29,16 @@ config.menuState = {
     }
 };
 config.gameState = {
-
+    gap: {
+        width: 100,
+        x: config.default.gameSpecs.width
+    },
+    rectangle: {
+        width: 300,
+        height: 200,
+        x: config.default.gameSpecs.width,
+        y: 0
+    }
 };
 
 config.testStage1 = {
