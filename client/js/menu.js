@@ -8,8 +8,8 @@ let menuState = {
         logo.inputEnabled = true;
         logo.events.onInputDown.add(() => {
             console.log("Ive been clicked!!", logo.x, logo.y);
-            game.state.start('game');
-            //game.state.start(config.default.stateManager.testStage1);
+            //game.state.start('game');
+            game.state.start(config.default.stateManager.testStage1);
         })
     }
 

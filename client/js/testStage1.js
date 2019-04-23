@@ -26,18 +26,21 @@ testStage1.create = () => {
      ];
     platforms.create(...platformData);
     platforms.setAll('body.immovable', true); //TODO ean: research what the 2nd param for setAll is
+                                              //Eric: it's the value to assign to the 1st param
     testStage1.platforms = platforms;
 
     //create the game keys
     testStage1.moveKeys = game.input.keyboard.createCursorKeys();
     testStage1.jumpBtn = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-
-    testStage1.player = player;
 };
 
 testStage1.update = () => {
-    game.physics.arcade.collide(testStage1.player, testStage1.platforms.next());
-    if (testStage1.player.body.onFloor() || testStage1.player.body.touching.down) {
-        testStage1.player.body.gravity.y = 0;
+    game.physics.arcade.collide(testStage1.player, testStage1.platforms);
+
+    if (testStage1.jumpBtn.isDown) {
+      if (testStage1.player.body.onFloor() || testStage1.player.body.touching.down) {
+          //testStage1.player.body.gravity.y = 0;
+          testStage1.player.body.velocity.y = -300;
+      }
     }
 }
