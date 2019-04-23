@@ -17,7 +17,8 @@ const loadState = {
 
         //Load your images, spritesheets, bitmaps...
         game.load.image(config.menuState.logo.spriteKey, config.menuState.logo.spriteSrc);
-
+        game.load.image(config.testStage1.player.spriteKey, config.testStage1.player.spriteSrc);
+        game.load.image(config.testStage1.platform.spriteKey, config.testStage1.platform.spriteSrc);
 
         //Load your sounds, efx, music...
         //Example: game.load.audio('rockas', 'assets/snd/rockas.wav');
@@ -29,7 +30,7 @@ const loadState = {
 
     create: ()  => {
 
-        game.stage.setBackgroundColor('#000');
+        game.stage.setBackgroundColor('#FFF');
         game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
         game.state.start('menu');
     }
