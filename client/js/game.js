@@ -1,7 +1,7 @@
 let gameState = {
   create: () => {
     gameState.mapObjects = [];
-    let firstObjData = [config.gameState.rectangle.x, config.default.gameSpecs.height-config.gameState.rectangle.height, config.gameState.rectangle.width, config.gameState.rectangle.height];
+    let firstObjData = [config.gameState.rectangle.x, config.default.gameSpecs.height-config.gameState.rectangle.height, game.rnd.integerInRange(config.gameState.rectangle.minWidth, config.gameState.rectangle.maxWidth), config.gameState.rectangle.height];
     gameState.mapObjects.push(gameState.createRectangle(...firstObjData));
   },
 
@@ -21,12 +21,12 @@ let gameState = {
           let newObjData;
           if (mapObj.isRectangle)
           {
-            newObjData = [config.gameState.gap.x, config.gameState.gap.width];
+            newObjData = [config.gameState.gap.x, game.rnd.integerInRange(config.gameState.gap.minWidth, config.gameState.gap.maxWidth)];
             newObj = gameState.createGap(...newObjData);
           }
           else
           {
-            newObjData = [config.gameState.rectangle.x, config.default.gameSpecs.height-config.gameState.rectangle.height, config.gameState.rectangle.width, config.gameState.rectangle.height];
+            newObjData = [config.gameState.rectangle.x, config.default.gameSpecs.height-config.gameState.rectangle.height, game.rnd.integerInRange(config.gameState.rectangle.minWidth, config.gameState.rectangle.maxWidth), config.gameState.rectangle.height];
             newObj = gameState.createRectangle(...newObjData);
           }
           gameState.mapObjects.push(newObj);

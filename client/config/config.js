@@ -30,11 +30,13 @@ config.menuState = {
 };
 config.gameState = {
     gap: {
-        width: 100,
+        minWidth: 100,
+        maxWidth: 200,
         x: config.default.gameSpecs.width
     },
     rectangle: {
-        width: 300,
+        minWidth: 100,
+        maxWidth: 300,
         height: 200,
         x: config.default.gameSpecs.width,
         y: 0
