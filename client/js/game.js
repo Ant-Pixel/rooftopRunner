@@ -1,7 +1,8 @@
 let gameState = {
   create: () => {
     gameState.mapObjects = [];
-    gameState.mapObjects.push(gameState.createRectangle(800, 0, 300, 200));
+    let firstObjData = [config.gameState.rectangle.x, config.default.gameSpecs.height-config.gameState.rectangle.height, config.gameState.rectangle.width, config.gameState.rectangle.height];
+    gameState.mapObjects.push(gameState.createRectangle(...firstObjData));
   },
 
   update: () => {
@@ -17,13 +18,16 @@ let gameState = {
         if (rightEdge < 800)
         {
           let newObj;
+          let newObjData;
           if (mapObj.isRectangle)
           {
-            newObj = gameState.createGap(800, 100);
+            newObjData = [config.gameState.gap.x, config.gameState.gap.width];
+            newObj = gameState.createGap(...newObjData);
           }
           else
           {
-            newObj = gameState.createRectangle(800, 0, 300, 200);
+            newObjData = [config.gameState.rectangle.x, config.default.gameSpecs.height-config.gameState.rectangle.height, config.gameState.rectangle.width, config.gameState.rectangle.height];
+            newObj = gameState.createRectangle(...newObjData);
           }
           gameState.mapObjects.push(newObj);
         }
@@ -53,5 +57,5 @@ let gameState = {
       isGap: true,
     };
     return gap;
-  },
+  }
 };

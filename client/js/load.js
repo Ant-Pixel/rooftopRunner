@@ -30,7 +30,7 @@ const loadState = {
 
     create: ()  => {
 
-        game.stage.setBackgroundColor('#FFF');
+        game.stage.setBackgroundColor(config.loadState.style.fill);
         game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
         game.state.start('menu');
     }
